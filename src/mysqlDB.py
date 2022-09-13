@@ -2,12 +2,13 @@ import os
 import mysql.connector
 
 db_host = os.getenv('DB_HOST')
+db_port = os.getenv('DB_PORT')
 db_pwd = os.getenv('DB_PWD')
 db_name = os.getenv('DB_NAME') # device_db
 table_name = 'devices'
 
 def open_connection():
-    db = mysql.connector.connect(host=db_host, database=db_name, user='root', password=db_pwd, port=3306)
+    db = mysql.connector.connect(host=db_host, database=db_name, user='root', password=db_pwd, port=db_port)
     return db
 
 def close_connection(db):
