@@ -1,2 +1,2 @@
-# task_app_demo
+# Device Registry Service Demo Application
 It is a demo application
