@@ -2,7 +2,8 @@ import os
 import mysql.connector
 
 db_host = os.getenv('DB_HOST')
-db_port = os.getenv('DB_PORT')
+#db_port = os.getenv('DB_PORT')
+db_port = 3306
 db_pwd = os.getenv('DB_PWD')
 db_name = os.getenv('DB_NAME') # device_db
 table_name = 'devices'
