@@ -6,10 +6,10 @@
 
 ### List All Devices
 
-** Definition **
+**Definition**
 `GET /devices`
 
-** Response **
+**Response**
 - `200 OK` on success
 
 ```json
