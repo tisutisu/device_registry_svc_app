@@ -57,7 +57,7 @@
 }
 ```
 
-## Lookup device details
+### Lookup device details
 
 `GET /device/<identifier>`
 
@@ -75,7 +75,7 @@
 }
 ```
 
-## Delete a device
+### Delete a device
 
 **Definition**
 

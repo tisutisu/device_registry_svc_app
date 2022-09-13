@@ -5,9 +5,10 @@ base_url = "http://127.0.0.1:5000/device/"
 
 @pytest.fixture
 def cleanup():
+    data = {'name': 'Redmi', 'device_type': 'Mobile', 'controller_gateway':'192.168.0.2'}
+    requests.put( base_url + "200", data)
     requests.delete( base_url + "300")
     yield
-    requests.delete( base_url + "300")
 
 def test_registering_device(cleanup, device_id="300"):
     data = {'name': 'Samsung', 'device_type': 'TV', 'controller_gateway':'192.168.0.3'}
