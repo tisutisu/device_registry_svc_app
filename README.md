@@ -88,8 +88,10 @@
 
 ## Installing the application as Helm Chart in Openshift
 
-`oc create ns device-ns`
-`helm install charts/device-registry/ -n device-ns --generate-name --values charts/device-registry/customvalues.yaml`
+```
+oc create ns device-ns
+helm install charts/device-registry/ -n device-ns --generate-name --values charts/device-registry/customvalues.yaml
+```
 
 ## Provisioning the DB
 
