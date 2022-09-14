@@ -86,3 +86,29 @@
 - `404 Not Found` if the device does not exist
 - `204 No Content` on success
 
+## Installing the application as Helm Chart in Openshift
+
+`oc create ns device-ns`
+`helm install charts/device-registry/ -n device-ns --generate-name --values charts/device-registry/customvalues.yaml`
+
+## Provisioning the DB
+
+```
+#Login to mysql pod
+kubectl exec -it -n device-ns mysql-7b8d9d4487-ng9l6 -- /bin/bash
+#Login to mysql cli using password used in values file
+mysql -u root -p
+#Create the db and table
+create database device_db;
+use device_db;
+create table devices (device_id varchar(255), device_name varchar(255), device_type varchar(255), controller_gateway varchar(255));
+```
+
+## Port Forwarding the restapi service
+
+`kubectl port-forward -n device-ns svc/restapi 5000`
+
+## Get the device list 
+
+`curl http://localhost:5000/devices`
+
