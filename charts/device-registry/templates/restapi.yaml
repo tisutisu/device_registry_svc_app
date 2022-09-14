@@ -6,7 +6,7 @@ metadata:
     app: restapi
   name: {{ include "dep.name" . }}
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
       app: restapi
@@ -18,7 +18,7 @@ spec:
         app: restapi
     spec:
       containers:
-      - image: quay.io/susdas/device_image:latest
+      - image: {{ .Values.device.image }}:{{ .Values.device.tag }}
         name: device-image
         resources: {}
         env:

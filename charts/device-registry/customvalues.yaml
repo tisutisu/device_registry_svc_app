@@ -4,6 +4,3 @@ database:
   rootPassword: something
   database_name: device_db
 
-mysql:
-  image: mysql
-  tag: "5.6"
