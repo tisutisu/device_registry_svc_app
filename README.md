@@ -1,4 +1,4 @@
-# Device Registry Service Demo Application
+# Device Registry Service Application
 
 
 ## Usage
@@ -14,18 +14,20 @@
 
 ```json
 [
-    {
-        "identifier": "floor-lamp",
-        "name": "Floor Lamp",
-        "device_type": "switch",
-        "controller_gateway": "192.1.68.0.2"
-    },
-    {
-        "identifier": "samsung-tv",
-        "name": "Living Room TV",
-        "device_type": "tv",
-        "controller_gateway": "192.168.0.9"
-    }
+    "floor-lamp" :
+        {
+            "identifier": "floor-lamp",
+            "name": "Floor Lamp",
+            "device_type": "switch",
+            "controller_gateway": "192.1.68.0.2"
+        },
+    "samsung-tv" :
+        {
+            "identifier": "samsung-tv",
+            "name": "Living Room TV",
+            "device_type": "tv",
+            "controller_gateway": "192.168.0.9"
+        }
 ]
 ```
 
@@ -110,7 +112,22 @@ create table devices (device_id varchar(255), device_name varchar(255), device_t
 
 `kubectl port-forward -n device-ns svc/restapi 5000`
 
-## Get the device list 
+## Get the device list
 
 `curl http://localhost:5000/devices`
+
+## Running the stress test
+
+Need to install locust before and that can be done using:
+`pip3 install locust`
+
+The command which can be used for running the stress test locally:
+
+`locust --headless --users 1 --spawn-rate 1 -H http://localhost:5000 -f ./load-testing/stress.py -t 5m`
+
+## Accessing the swagger UI
+
+To access the swagger UI integrated with the app use /swagger endpoint as below:
+`http://localhost:5000/swagger`
+
 
